@@ -4,22 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fundamentos de la Fe – Nivel Básico II</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --ink: #0d1f35;
-    --ink-muted: #3a5570;
-    --ink-faint: #7a9bb5;
-    --bg: #f0f6fb;
-    --bg-dark: #ddeef8;
-    --sky: #4a9fc8;
-    --sky-light: #a8d4ec;
-    --sky-pale: #e8f4fb;
-    --rule: #c2dced;
-    --white: #ffffff;
-    --shadow: 0 2px 12px rgba(20,70,110,0.09);
+    --ink: #0f2a3f;
+    --ink-muted: #2e5470;
+    --ink-faint: #6a94ae;
+    --bg: #eef6fb;
+    --bg-card: #ffffff;
+    --sky: #2e86c1;
+    --sky-mid: #5ba4d0;
+    --sky-light: #b3d7ee;
+    --sky-pale: #e3f2fa;
+    --rule: #c4dff0;
+    --shadow: 0 2px 16px rgba(20,70,110,0.09);
   }
 
   html { scroll-behavior: smooth; }
@@ -27,7 +27,7 @@
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 16px;
     line-height: 1.6;
     min-height: 100vh;
@@ -35,75 +35,70 @@
 
   /* ── HEADER ── */
   header {
-    background: linear-gradient(135deg, #1a3f5c 0%, #2a6a96 60%, #4a9fc8 100%);
-    color: var(--white);
-    padding: 3rem 1.5rem 2.5rem;
+    background: linear-gradient(140deg, #0d2e4a 0%, #1a5c8a 55%, #2e86c1 100%);
+    color: #fff;
+    padding: 3.5rem 1.5rem 3rem;
     text-align: center;
     position: relative;
     overflow: hidden;
   }
-  header::before {
+  header::after {
     content: '';
     position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 39px,
-      rgba(255,255,255,0.04) 39px,
-      rgba(255,255,255,0.04) 40px
-    );
-    pointer-events: none;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #5ba4d0, #a8d8f0, #5ba4d0);
   }
   .header-eyebrow {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--sky-light);
+    color: #a8d8f0;
     margin-bottom: 1rem;
   }
   header h1 {
-    font-family: 'Lora', serif;
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
-    font-weight: 600;
-    line-height: 1.2;
-    color: var(--white);
-    margin-bottom: 0.5rem;
+    font-family: 'Merriweather', serif;
+    font-size: clamp(1.9rem, 5vw, 2.9rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: #fff;
+    margin-bottom: 0.6rem;
   }
   .header-sub {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
     margin-top: 0.75rem;
+    font-weight: 400;
   }
   .sky-rule {
-    width: 48px;
-    height: 2px;
-    background: var(--sky-light);
-    margin: 1.25rem auto 0;
-    border-radius: 1px;
+    width: 52px;
+    height: 3px;
+    background: #5ba4d0;
+    margin: 1.5rem auto 0;
+    border-radius: 2px;
   }
 
   /* ── MAIN ── */
   main {
-    max-width: 960px;
+    max-width: 980px;
     margin: 0 auto;
-    padding: 2.5rem 1.25rem 4rem;
+    padding: 2.5rem 1.25rem 4.5rem;
   }
 
   /* ── GRID ── */
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 1.4rem;
   }
 
   /* ── CARD ── */
   .card {
-    background: var(--white);
+    background: var(--bg-card);
     border: 1px solid var(--rule);
-    border-radius: 10px;
+    border-radius: 14px;
     overflow: hidden;
     box-shadow: var(--shadow);
     display: flex;
@@ -111,100 +106,107 @@
     transition: transform 0.15s, box-shadow 0.15s;
   }
   .card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(20,70,110,0.14);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(20,70,110,0.14);
   }
   .card-top {
     background: var(--sky-pale);
     border-bottom: 1px solid var(--sky-light);
-    padding: 14px 18px 12px;
+    padding: 16px 20px 13px;
     display: flex;
     align-items: flex-start;
     gap: 12px;
   }
   .lec-badge {
     background: var(--sky);
-    color: var(--white);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    padding: 3px 8px;
-    border-radius: 4px;
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 6px;
     white-space: nowrap;
     flex-shrink: 0;
-    margin-top: 2px;
+    margin-top: 1px;
   }
   .card-title {
-    font-family: 'Lora', serif;
-    font-size: 15px;
-    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
     color: var(--ink);
     line-height: 1.35;
   }
+
+  /* ── VERSES ── */
   .card-body {
-    padding: 16px 18px 18px;
+    padding: 18px 20px 22px;
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 16px;
   }
-  .verse-block { display: flex; flex-direction: column; gap: 6px; }
+  .verse-block { display: flex; flex-direction: column; gap: 8px; }
   .verse-ref {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
     color: var(--sky);
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
   }
   .verse-ref svg { flex-shrink: 0; }
   .verse-text {
-    font-family: 'Lora', serif;
-    font-size: 13.5px;
+    font-family: 'Merriweather', serif;
+    font-size: 14.5px;
+    font-weight: 400;
     font-style: italic;
     color: var(--ink-muted);
-    line-height: 1.75;
-    border-left: 2px solid var(--sky-light);
-    padding-left: 10px;
+    line-height: 1.85;
+    border-left: 3px solid var(--sky-light);
+    padding-left: 13px;
+    margin-left: 2px;
   }
 
   /* ── FOOTER ── */
   footer {
     text-align: center;
     padding: 2rem 1rem;
-    font-size: 12px;
+    font-size: 13px;
     color: var(--ink-faint);
     border-top: 1px solid var(--rule);
+    font-family: 'Nunito', sans-serif;
   }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 480px) {
-    header { padding: 2.25rem 1rem 2rem; }
+  @media (max-width: 500px) {
+    header { padding: 2.5rem 1.25rem 2.25rem; }
     main { padding: 1.75rem 1rem 3rem; }
-    .grid { grid-template-columns: 1fr; gap: 1rem; }
-    .card-top { padding: 12px 14px 10px; }
-    .card-body { padding: 13px 14px 16px; }
-    .verse-text { font-size: 13px; }
+    .grid { grid-template-columns: 1fr; gap: 1.1rem; }
+    .card-top { padding: 14px 16px 11px; }
+    .card-body { padding: 15px 16px 18px; }
+    .card-title { font-size: 15px; }
+    .verse-text { font-size: 14px; line-height: 1.8; }
   }
 
-  @media (min-width: 700px) and (max-width: 959px) {
+  @media (min-width: 700px) and (max-width: 979px) {
     .grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media print {
     header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .card { break-inside: avoid; box-shadow: none; border-color: #ccc; }
+    .card { break-inside: avoid; box-shadow: none; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <p class="header-eyebrow">Fundamentos de la Fe</p>
+  <p class="header-eyebrow">IEPM - Fundamentos de la Fe</p>
   <h1>Nivel Básico II</h1>
-  <p class="header-sub">Viernes, 12 de junio de 2026 &nbsp;·&nbsp; Reina Valera 1960</p>
   <div class="sky-rule"></div>
 </header>
 
@@ -218,11 +220,11 @@
       </div>
       <div class="card-body">
         <div class="verse-block">
-          <div class="verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>2 Timoteo 3:16-17</div>
+          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>2 Timoteo 3:16-17</div>
           <p class="verse-text">Toda la Escritura es inspirada por Dios, y útil para enseñar, para redargüir, para corregir, para instruir en justicia, a fin de que el hombre de Dios sea perfecto, enteramente preparado para toda buena obra.</p>
         </div>
         <div class="verse-block">
-          <div class="verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>2 Pedro 1:21</div>
+          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>2 Pedro 1:21</div>
           <p class="verse-text">porque nunca la profecía fue traída por voluntad humana, sino que los santos hombres de Dios hablaron siendo inspirados por el Espíritu Santo.</p>
         </div>
       </div>
@@ -235,7 +237,7 @@
       </div>
       <div class="card-body">
         <div class="verse-block">
-          <div class="verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Romanos 1:19-20</div>
+          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Romanos 1:19-20</div>
           <p class="verse-text">porque lo que de Dios se conoce les es manifiesto, pues Dios se lo manifestó. Porque las cosas invisibles de él, su eterno poder y deidad, se hacen claramente visibles desde la creación del mundo, siendo entendidas por medio de las cosas hechas, de modo que no tienen excusa.</p>
         </div>
       </div>
@@ -248,7 +250,7 @@
       </div>
       <div class="card-body">
         <div class="verse-block">
-          <div class="verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Mateo 3:16-17</div>
+          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Mateo 3:16-17</div>
           <p class="verse-text">Y Jesús, después que fue bautizado, subió luego del agua; y he aquí los cielos le fueron abiertos, y vio al Espíritu de Dios que descendía como paloma, y venía sobre él. Y hubo una voz de los cielos, que decía: Este es mi Hijo amado, en quien tengo complacencia.</p>
         </div>
       </div>
@@ -261,7 +263,7 @@
       </div>
       <div class="card-body">
         <div class="verse-block">
-          <div class="verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Romanos 9:5</div>
+          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Romanos 9:5</div>
           <p class="verse-text">de quienes son los patriarcas, y de los cuales, según la carne, vino Cristo, el cual es Dios sobre todas las cosas, bendito por los siglos. Amén.</p>
         </div>
       </div>
@@ -274,7 +276,7 @@
       </div>
       <div class="card-body">
         <div class="verse-block">
-          <div class="verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>1 Corintios 15:3-4</div>
+          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>1 Corintios 15:3-4</div>
           <p class="verse-text">Porque primeramente os he enseñado lo que asimismo recibí: Que Cristo murió por nuestros pecados, conforme a las Escrituras; y que fue sepultado, y que resucitó al tercer día, conforme a las Escrituras.</p>
         </div>
       </div>
@@ -287,7 +289,7 @@
       </div>
       <div class="card-body">
         <div class="verse-block">
-          <div class="verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Juan 14:16</div>
+          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Juan 14:16</div>
           <p class="verse-text">Y yo rogaré al Padre, y os dará otro Consolador, para que esté con vosotros para siempre.</p>
         </div>
       </div>
@@ -300,7 +302,7 @@
       </div>
       <div class="card-body">
         <div class="verse-block">
-          <div class="verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Efesios 2:8-9</div>
+          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Efesios 2:8-9</div>
           <p class="verse-text">Porque por gracia sois salvos por medio de la fe; y esto no de vosotros, pues es don de Dios; no por obras, para que nadie se gloríe.</p>
         </div>
       </div>
@@ -313,7 +315,7 @@
       </div>
       <div class="card-body">
         <div class="verse-block">
-          <div class="verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Juan 11:25-26</div>
+          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Juan 11:25-26</div>
           <p class="verse-text">Le dijo Jesús: Yo soy la resurrección y la vida; el que cree en mí, aunque esté muerto, vivirá. Y todo aquel que vive y cree en mí, no morirá eternamente. ¿Crees esto?</p>
         </div>
       </div>
@@ -326,7 +328,7 @@
       </div>
       <div class="card-body">
         <div class="verse-block">
-          <div class="verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Juan 14:3</div>
+          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Juan 14:3</div>
           <p class="verse-text">Y si me fuere y os preparare lugar, vendré otra vez, y os tomaré a mí mismo, para que donde yo estoy, vosotros también estéis.</p>
         </div>
       </div>
@@ -339,7 +341,7 @@
       </div>
       <div class="card-body">
         <div class="verse-block">
-          <div class="verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Deuteronomio 10:14</div>
+          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Deuteronomio 10:14</div>
           <p class="verse-text">He aquí, de Jehová tu Dios son los cielos, y los cielos de los cielos, la tierra, y todas las cosas que hay en ella.</p>
         </div>
       </div>
