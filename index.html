@@ -3,356 +3,285 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fundamentos de la Fe – Nivel Básico II</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<title>Estudios Bíblicos</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --ink: #0f2a3f;
-    --ink-muted: #2e5470;
-    --ink-faint: #6a94ae;
+    --ink: #0f2233;
+    --ink-muted: #3a5570;
+    --ink-faint: #7a9bb5;
     --bg: #eef6fb;
-    --bg-card: #ffffff;
-    --sky: #2e86c1;
-    --sky-mid: #5ba4d0;
-    --sky-light: #b3d7ee;
-    --sky-pale: #e3f2fa;
+    --white: #fff;
     --rule: #c4dff0;
     --shadow: 0 2px 16px rgba(20,70,110,0.09);
   }
-
-  html { scroll-behavior: smooth; }
 
   body {
     background: var(--bg);
     color: var(--ink);
     font-family: 'Nunito', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
     min-height: 100vh;
   }
 
-  /* ── HEADER ── */
-  header {
-    background: linear-gradient(140deg, #0d2e4a 0%, #1a5c8a 55%, #2e86c1 100%);
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(140deg, #0d2233 0%, #0d3d5c 50%, #1a6690 100%);
     color: #fff;
-    padding: 3.5rem 1.5rem 3rem;
     text-align: center;
+    padding: 4rem 1.5rem 3.5rem;
     position: relative;
     overflow: hidden;
   }
-  header::after {
+  .hero::after {
     content: '';
     position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #5ba4d0, #a8d8f0, #5ba4d0);
+    bottom: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, #3aaa7a, #5ba4d0, #a78bfa, #5ba4d0, #3aaa7a);
   }
-  .header-eyebrow {
-    font-family: 'Nunito', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #a8d8f0;
-    margin-bottom: 1rem;
+  .hero-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase; color: #a8d8f0; margin-bottom: 1rem;
   }
-  header h1 {
+  .hero h1 {
     font-family: 'Merriweather', serif;
-    font-size: clamp(1.9rem, 5vw, 2.9rem);
-    font-weight: 700;
-    line-height: 1.25;
-    color: #fff;
-    margin-bottom: 0.6rem;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 700; line-height: 1.2; margin-bottom: 0.75rem;
   }
-  .header-sub {
-    font-size: 14px;
-    color: rgba(255,255,255,0.55);
-    margin-top: 0.75rem;
-    font-weight: 400;
+  .hero p {
+    font-size: 15px; color: rgba(255,255,255,0.5); max-width: 420px; margin: 0 auto;
   }
-  .sky-rule {
-    width: 52px;
-    height: 3px;
-    background: #5ba4d0;
-    margin: 1.5rem auto 0;
-    border-radius: 2px;
-  }
+  .hero-rule { width: 52px; height: 3px; background: #5ba4d0; margin: 1.5rem auto 0; border-radius: 2px; }
 
   /* ── MAIN ── */
-  main {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 2.5rem 1.25rem 4.5rem;
+  main { max-width: 780px; margin: 0 auto; padding: 2.5rem 1.25rem 5rem; }
+
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--ink-faint); margin-bottom: 1.25rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--rule);
   }
 
-  /* ── GRID ── */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-    gap: 1.4rem;
-  }
-
-  /* ── CARD ── */
-  .card {
-    background: var(--bg-card);
+  /* ── CATEGORY BLOCK ── */
+  .category {
+    margin-bottom: 1.5rem;
     border: 1px solid var(--rule);
     border-radius: 14px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.15s, box-shadow 0.15s;
-  }
-  .card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(20,70,110,0.14);
-  }
-  .card-top {
-    background: var(--sky-pale);
-    border-bottom: 1px solid var(--sky-light);
-    padding: 16px 20px 13px;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .lec-badge {
-    background: var(--sky);
-    color: #fff;
-    font-family: 'Nunito', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    padding: 4px 10px;
-    border-radius: 6px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-  .card-title {
-    font-family: 'Nunito', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.35;
+    background: var(--white);
   }
 
-  /* ── VERSES ── */
-  .card-body {
-    padding: 18px 20px 22px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  .category-header {
+    display: flex; align-items: center; gap: 14px;
+    padding: 18px 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s;
+    background: var(--white);
+    border: none; width: 100%; text-align: left;
   }
-  .verse-block { display: flex; flex-direction: column; gap: 8px; }
-  .verse-ref {
-    font-family: 'Nunito', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--sky);
-    display: flex;
-    align-items: center;
-    gap: 6px;
+  .category-header:hover { background: #f5fbff; }
+
+  .cat-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
   }
-  .verse-ref svg { flex-shrink: 0; }
-  .verse-text {
+
+  .cat-info { flex: 1; }
+  .cat-title {
     font-family: 'Merriweather', serif;
-    font-size: 14.5px;
-    font-weight: 400;
-    font-style: italic;
-    color: var(--ink-muted);
-    line-height: 1.85;
-    border-left: 3px solid var(--sky-light);
-    padding-left: 13px;
-    margin-left: 2px;
+    font-size: 16px; font-weight: 700; color: var(--ink); line-height: 1.3;
+  }
+  .cat-meta { font-size: 12px; color: var(--ink-faint); margin-top: 3px; }
+
+  .cat-count {
+    font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  .cat-chevron {
+    width: 20px; height: 20px; flex-shrink: 0;
+    color: var(--ink-faint);
+    transition: transform 0.25s;
+  }
+  .category.open .cat-chevron { transform: rotate(180deg); }
+
+  /* ── LESSONS LIST ── */
+  .lessons {
+    display: none;
+    border-top: 1px solid var(--rule);
+  }
+  .category.open .lessons { display: block; }
+
+  .lesson-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 20px;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 1px solid #f0f7fc;
+    transition: background 0.12s;
+  }
+  .lesson-item:last-child { border-bottom: none; }
+  .lesson-item:hover { background: #f0f8ff; }
+
+  .lesson-num {
+    width: 32px; height: 32px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; flex-shrink: 0;
+  }
+
+  .lesson-info { flex: 1; }
+  .lesson-title { font-size: 14px; font-weight: 700; color: var(--ink); }
+  .lesson-sub { font-size: 12px; color: var(--ink-faint); margin-top: 2px; }
+
+  .lesson-arrow {
+    width: 16px; height: 16px; color: var(--ink-faint); flex-shrink: 0;
+  }
+
+  /* ── ADD NEW HINT ── */
+  .add-hint {
+    margin-top: 2rem;
+    border: 2px dashed var(--rule);
+    border-radius: 14px;
+    padding: 1.75rem;
+    text-align: center;
+    color: var(--ink-faint);
+  }
+  .add-hint p { font-size: 13px; line-height: 1.6; }
+  .add-hint strong { color: var(--ink-muted); }
+  .add-hint code {
+    background: #e8f4fb; color: #2e6a9c;
+    font-family: monospace; font-size: 12px;
+    padding: 2px 7px; border-radius: 4px;
   }
 
   /* ── FOOTER ── */
   footer {
-    text-align: center;
-    padding: 2rem 1rem;
-    font-size: 13px;
-    color: var(--ink-faint);
+    text-align: center; padding: 2rem 1rem;
+    font-size: 12px; color: var(--ink-faint);
     border-top: 1px solid var(--rule);
-    font-family: 'Nunito', sans-serif;
   }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 500px) {
-    header { padding: 2.5rem 1.25rem 2.25rem; }
-    main { padding: 1.75rem 1rem 3rem; }
-    .grid { grid-template-columns: 1fr; gap: 1.1rem; }
-    .card-top { padding: 14px 16px 11px; }
-    .card-body { padding: 15px 16px 18px; }
-    .card-title { font-size: 15px; }
-    .verse-text { font-size: 14px; line-height: 1.8; }
-  }
-
-  @media (min-width: 700px) and (max-width: 979px) {
-    .grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media print {
-    header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .card { break-inside: avoid; box-shadow: none; }
+  @media (max-width: 480px) {
+    .hero { padding: 3rem 1.25rem 2.5rem; }
+    main { padding: 1.75rem 1rem 3.5rem; }
+    .category-header { padding: 15px 16px; gap: 11px; }
+    .lesson-item { padding: 12px 16px; gap: 11px; }
+    .cat-icon { width: 40px; height: 40px; font-size: 20px; border-radius: 10px; }
   }
 </style>
 </head>
 <body>
 
-<header>
-  <p class="header-eyebrow">IEPM - Fundamentos de la Fe</p>
-  <h1>Nivel Básico II</h1>
-  <div class="sky-rule"></div>
-</header>
+<div class="hero">
+  <p class="hero-label">Iglesia · Materiales de Estudio</p>
+  <h1>Estudios Bíblicos</h1>
+  <p>Selecciona una materia para comenzar tu estudio</p>
+  <div class="hero-rule"></div>
+</div>
 
 <main>
-  <div class="grid">
 
-    <div class="card">
-      <div class="card-top">
-        <span class="lec-badge">Lec. 01</span>
-        <span class="card-title">La Escritura</span>
+  <p class="section-label">Materias disponibles</p>
+
+  <!-- ══ CATEGORÍA 1: FUNDAMENTOS ══ -->
+  <div class="category open" id="cat-fundamentos">
+    <button class="category-header" onclick="toggleCat('cat-fundamentos')" aria-expanded="true">
+      <div class="cat-icon" style="background:#e3f2fa;">📖</div>
+      <div class="cat-info">
+        <div class="cat-title">Fundamentos de la Fe</div>
+        <div class="cat-meta">Doctrina básica · Reina Valera 1960</div>
       </div>
-      <div class="card-body">
-        <div class="verse-block">
-          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>2 Timoteo 3:16-17</div>
-          <p class="verse-text">Toda la Escritura es inspirada por Dios, y útil para enseñar, para redargüir, para corregir, para instruir en justicia, a fin de que el hombre de Dios sea perfecto, enteramente preparado para toda buena obra.</p>
+      <span class="cat-count" style="background:#e3f2fa; color:#2e86c1;">1 lección</span>
+      <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="lessons">
+      <a class="lesson-item" href="https://danielnoel.github.io/iepm/fundamentos.html">
+        <div class="lesson-num" style="background:#e3f2fa; color:#2e86c1;">II</div>
+        <div class="lesson-info">
+          <div class="lesson-title">Nivel Básico II</div>
+          <div class="lesson-sub">10 lecciones · La Escritura, Trinidad, Salvación…</div>
         </div>
-        <div class="verse-block">
-          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>2 Pedro 1:21</div>
-          <p class="verse-text">porque nunca la profecía fue traída por voluntad humana, sino que los santos hombres de Dios hablaron siendo inspirados por el Espíritu Santo.</p>
-        </div>
-      </div>
+        <svg class="lesson-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <!-- AGREGAR MÁS NIVELES AQUÍ -->
     </div>
-
-    <div class="card">
-      <div class="card-top">
-        <span class="lec-badge">Lec. 02</span>
-        <span class="card-title">Un solo Dios</span>
-      </div>
-      <div class="card-body">
-        <div class="verse-block">
-          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Romanos 1:19-20</div>
-          <p class="verse-text">porque lo que de Dios se conoce les es manifiesto, pues Dios se lo manifestó. Porque las cosas invisibles de él, su eterno poder y deidad, se hacen claramente visibles desde la creación del mundo, siendo entendidas por medio de las cosas hechas, de modo que no tienen excusa.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <span class="lec-badge">Lec. 03</span>
-        <span class="card-title">La Trinidad</span>
-      </div>
-      <div class="card-body">
-        <div class="verse-block">
-          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Mateo 3:16-17</div>
-          <p class="verse-text">Y Jesús, después que fue bautizado, subió luego del agua; y he aquí los cielos le fueron abiertos, y vio al Espíritu de Dios que descendía como paloma, y venía sobre él. Y hubo una voz de los cielos, que decía: Este es mi Hijo amado, en quien tengo complacencia.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <span class="lec-badge">Lec. 04</span>
-        <span class="card-title">Jesucristo es Dios</span>
-      </div>
-      <div class="card-body">
-        <div class="verse-block">
-          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Romanos 9:5</div>
-          <p class="verse-text">de quienes son los patriarcas, y de los cuales, según la carne, vino Cristo, el cual es Dios sobre todas las cosas, bendito por los siglos. Amén.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <span class="lec-badge">Lec. 05</span>
-        <span class="card-title">El sacrificio de Cristo</span>
-      </div>
-      <div class="card-body">
-        <div class="verse-block">
-          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>1 Corintios 15:3-4</div>
-          <p class="verse-text">Porque primeramente os he enseñado lo que asimismo recibí: Que Cristo murió por nuestros pecados, conforme a las Escrituras; y que fue sepultado, y que resucitó al tercer día, conforme a las Escrituras.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <span class="lec-badge">Lec. 06</span>
-        <span class="card-title">El Espíritu Santo es Dios</span>
-      </div>
-      <div class="card-body">
-        <div class="verse-block">
-          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Juan 14:16</div>
-          <p class="verse-text">Y yo rogaré al Padre, y os dará otro Consolador, para que esté con vosotros para siempre.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <span class="lec-badge">Lec. 07</span>
-        <span class="card-title">Salvos por gracia</span>
-      </div>
-      <div class="card-body">
-        <div class="verse-block">
-          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Efesios 2:8-9</div>
-          <p class="verse-text">Porque por gracia sois salvos por medio de la fe; y esto no de vosotros, pues es don de Dios; no por obras, para que nadie se gloríe.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <span class="lec-badge">Lec. 08</span>
-        <span class="card-title">La resurrección de los muertos</span>
-      </div>
-      <div class="card-body">
-        <div class="verse-block">
-          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Juan 11:25-26</div>
-          <p class="verse-text">Le dijo Jesús: Yo soy la resurrección y la vida; el que cree en mí, aunque esté muerto, vivirá. Y todo aquel que vive y cree en mí, no morirá eternamente. ¿Crees esto?</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <span class="lec-badge">Lec. 09</span>
-        <span class="card-title">La segunda venida de Cristo</span>
-      </div>
-      <div class="card-body">
-        <div class="verse-block">
-          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Juan 14:3</div>
-          <p class="verse-text">Y si me fuere y os preparare lugar, vendré otra vez, y os tomaré a mí mismo, para que donde yo estoy, vosotros también estéis.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <span class="lec-badge">Lec. 10</span>
-        <span class="card-title">El cielo y el infierno</span>
-      </div>
-      <div class="card-body">
-        <div class="verse-block">
-          <div class="verse-ref"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Deuteronomio 10:14</div>
-          <p class="verse-text">He aquí, de Jehová tu Dios son los cielos, y los cielos de los cielos, la tierra, y todas las cosas que hay en ella.</p>
-        </div>
-      </div>
-    </div>
-
   </div>
+
+  <!-- ══ CATEGORÍA 2: EVANGELISMO ══ -->
+  <div class="category open" id="cat-evangelismo">
+    <button class="category-header" onclick="toggleCat('cat-evangelismo')" aria-expanded="true">
+      <div class="cat-icon" style="background:#e6f7f1;">✝️</div>
+      <div class="cat-info">
+        <div class="cat-title">Evangelismo</div>
+        <div class="cat-meta">Predicación y misión · Reina Valera 1960</div>
+      </div>
+      <span class="cat-count" style="background:#e6f7f1; color:#1e7e5a;">1 estudio</span>
+      <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="lessons">
+      <a class="lesson-item" href="https://danielnoel.github.io/iepm/evangelismo.html">
+        <div class="lesson-num" style="background:#e6f7f1; color:#1e7e5a;">01</div>
+        <div class="lesson-info">
+          <div class="lesson-title">Principios del Evangelismo</div>
+          <div class="lesson-sub">10 puntos · Autoridad, Compasión, Mentalidad del predicador…</div>
+        </div>
+        <svg class="lesson-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <!-- AGREGAR MÁS ESTUDIOS AQUÍ -->
+    </div>
+  </div>
+
+  <!-- ══ CATEGORÍA 3: PLACEHOLDER (lista para agregar) ══ -->
+  <div class="category" id="cat-nuevo">
+    <button class="category-header" onclick="toggleCat('cat-nuevo')" aria-expanded="false">
+      <div class="cat-icon" style="background:#f3f0ff;">🙏</div>
+      <div class="cat-info">
+        <div class="cat-title">Próximas materias</div>
+        <div class="cat-meta">Vida cristiana, Oración, Discipulado…</div>
+      </div>
+      <span class="cat-count" style="background:#f3f0ff; color:#7c6fcb;">Pronto</span>
+      <svg class="cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="lessons">
+      <div class="lesson-item" style="color:var(--ink-faint); cursor:default;">
+        <div class="lesson-num" style="background:#f3f0ff; color:#a89fd8;">—</div>
+        <div class="lesson-info">
+          <div class="lesson-title" style="color:var(--ink-faint);">Contenido en preparación</div>
+          <div class="lesson-sub">Agrega nuevos archivos HTML y enlázalos aquí</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── INSTRUCCIÓN PARA AGREGAR ── -->
+  <div class="add-hint">
+    <p>
+      <strong>¿Cómo agregar una nueva materia?</strong><br>
+      Crea un archivo <code>nueva-materia.html</code> en esta misma carpeta,
+      luego copia un bloque <code>&lt;!-- CATEGORÍA --&gt;</code> en este index
+      y actualiza el enlace. ¡Así de simple!
+    </p>
+  </div>
+
 </main>
 
-<footer>
-  Reina Valera 1960 &nbsp;·&nbsp; Fundamentos de la Fe – Nivel Básico II &nbsp;·&nbsp; 2026
-</footer>
+<footer>Reina Valera 1960 &nbsp;·&nbsp; Estudios Bíblicos &nbsp;·&nbsp; 2026</footer>
 
+<script>
+  function toggleCat(id) {
+    const el = document.getElementById(id);
+    const isOpen = el.classList.contains('open');
+    el.classList.toggle('open', !isOpen);
+    el.querySelector('.category-header').setAttribute('aria-expanded', String(!isOpen));
+  }
+</script>
 </body>
 </html>

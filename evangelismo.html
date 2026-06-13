@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evangelismo – Principios Bíblicos</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0f2a1e; --ink-muted: #2e5445; --ink-faint: #6a9e86;
+    --bg: #eef8f3; --bg-card: #fff;
+    --grn: #1e7e5a; --grn-mid: #3aaa7a; --grn-light: #a8dfc8; --grn-pale: #e6f7f1;
+    --rule: #b8e2d0; --shadow: 0 2px 16px rgba(20,100,70,0.08);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Nunito', sans-serif; min-height: 100vh; }
+
+  /* BACK NAV */
+  .topnav { background: #0d2e1e; padding: 0 1.5rem; }
+  .back-btn { display: inline-flex; align-items: center; gap: 7px; color: rgba(255,255,255,0.6); font-size: 13px; font-weight: 600; text-decoration: none; padding: 12px 0; transition: color 0.15s; }
+  .back-btn:hover { color: #a8dfca; }
+
+  /* HEADER */
+  header { background: linear-gradient(140deg, #0d2e1e 0%, #1a6644 55%, #1e7e5a 100%); color: #fff; padding: 3rem 1.5rem 2.5rem; text-align: center; position: relative; overflow: hidden; }
+  header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #3aaa7a, #a8dfca, #3aaa7a); }
+  .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #a8dfca; margin-bottom: 1rem; }
+  header h1 { font-family: 'Merriweather', serif; font-size: clamp(1.9rem, 5vw, 2.9rem); font-weight: 700; line-height: 1.25; }
+  .header-sub { font-size: 14px; color: rgba(255,255,255,0.5); margin-top: 0.75rem; }
+  .h-rule { width: 52px; height: 3px; background: #3aaa7a; margin: 1.5rem auto 0; border-radius: 2px; }
+
+  /* MAIN */
+  main { max-width: 980px; margin: 0 auto; padding: 2.5rem 1.25rem 4.5rem; }
+  .ev-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.4rem; }
+
+  /* CARDS */
+  .ev-card { background: var(--bg-card); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; transition: transform 0.15s, box-shadow 0.15s; }
+  .ev-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(20,100,70,0.13); }
+  .ev-card.wide { grid-column: 1 / -1; }
+  .ev-card-top { background: var(--grn-pale); border-bottom: 1px solid var(--grn-light); padding: 15px 20px 13px; display: flex; align-items: flex-start; gap: 12px; }
+  .ev-badge { background: var(--grn); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; padding: 4px 10px; border-radius: 6px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .ev-card-title { font-size: 15px; font-weight: 700; color: var(--ink); line-height: 1.35; }
+  .ev-card-body { padding: 16px 20px 20px; flex: 1; display: flex; flex-direction: column; gap: 12px; }
+  .ev-verse { font-family: 'Merriweather', serif; font-size: 13.5px; font-style: italic; color: var(--ink-muted); line-height: 1.85; border-left: 3px solid var(--grn-light); padding-left: 12px; margin-left: 2px; }
+  .ev-verse-ref { font-size: 11px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--grn); display: flex; align-items: center; gap: 5px; margin-bottom: 4px; }
+  .ev-desc { font-size: 14.5px; color: var(--ink-muted); line-height: 1.75; }
+  .ev-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .ev-list li { font-size: 14px; color: var(--ink-muted); line-height: 1.7; display: flex; align-items: flex-start; gap: 9px; }
+  .ev-list li::before { content: ''; width: 7px; height: 7px; background: var(--grn-mid); border-radius: 50%; flex-shrink: 0; margin-top: 8px; }
+
+  footer { text-align: center; padding: 2rem 1rem; font-size: 13px; color: var(--ink-faint); border-top: 1px solid var(--rule); }
+
+  @media (max-width: 500px) {
+    main { padding: 1.75rem 1rem 3rem; }
+    .ev-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .ev-card.wide { grid-column: 1; }
+    .ev-card-top { padding: 13px 15px 11px; } .ev-card-body { padding: 14px 15px 17px; }
+    .ev-verse { font-size: 13px; }
+  }
+  @media print { header { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .ev-card { break-inside: avoid; box-shadow: none; } .topnav { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="back-btn" href="https://danielnoel.github.io/iepm/index.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Volver al índice
+  </a>
+</div>
+
+<header>
+  <p class="eyebrow">Estudio Bíblico</p>
+  <h1>Evangelismo</h1>
+  <p class="header-sub">Reina Valera 1960 &nbsp;·&nbsp; Principios y llamado a predicar</p>
+  <div class="h-rule"></div>
+</header>
+
+<main>
+  <div class="ev-grid">
+
+    <div class="ev-card">
+      <div class="ev-card-top"><span class="ev-badge">1</span><span class="ev-card-title">Glorificar a Dios</span></div>
+      <div class="ev-card-body">
+        <p class="ev-desc">El propósito central del evangelismo es glorificar a Dios. Todo texto evangelístico y toda proclamación deben apuntar a exaltar su nombre.</p>
+        <div><div class="ev-verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>1 Corintios 2:2</div>
+        <p class="ev-verse">Pues me propuse no saber entre vosotros cosa alguna sino a Jesucristo, y a éste crucificado.</p></div>
+      </div>
+    </div>
+
+    <div class="ev-card">
+      <div class="ev-card-top"><span class="ev-badge">2</span><span class="ev-card-title">Tener autoridad</span></div>
+      <div class="ev-card-body">
+        <p class="ev-desc">Predicar con un mensaje de poder. El evangelista debe actuar con la autoridad que Dios le ha dado, no con temor ni cobardía.</p>
+        <div><div class="ev-verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>2 Timoteo 1:7</div>
+        <p class="ev-verse">Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio.</p></div>
+      </div>
+    </div>
+
+    <div class="ev-card">
+      <div class="ev-card-top"><span class="ev-badge">3</span><span class="ev-card-title">Confianza</span></div>
+      <div class="ev-card-body">
+        <p class="ev-desc">El mensaje debe ser cristocéntrico — centrado en la cruz y la resurrección de Cristo. Esa es la fuente de toda confianza al predicar.</p>
+        <div><div class="ev-verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Romanos 1:16</div>
+        <p class="ev-verse">Porque no me avergüenzo del evangelio, porque es poder de Dios para salvación a todo aquel que cree; al judío primeramente, y también al griego.</p></div>
+      </div>
+    </div>
+
+    <div class="ev-card">
+      <div class="ev-card-top"><span class="ev-badge">4</span><span class="ev-card-title">Dios habla a través del predicador</span></div>
+      <div class="ev-card-body">
+        <p class="ev-desc">Tener el concepto de que Dios mismo habla a través del predicador. No es solo una voz humana, sino un instrumento del Señor.</p>
+        <div><div class="ev-verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>1 Tesalonicenses 1:5</div>
+        <p class="ev-verse">pues nuestro evangelio no llegó a vosotros en palabras solamente, sino también en poder, en el Espíritu Santo y en plena certidumbre.</p></div>
+      </div>
+    </div>
+
+    <div class="ev-card">
+      <div class="ev-card-top"><span class="ev-badge">5</span><span class="ev-card-title">Tener expectativa</span></div>
+      <div class="ev-card-body">
+        <p class="ev-desc">Salir a predicar sin miedo y sin vergüenza, con plena expectativa de que Dios va a obrar. La fe activa el poder de Dios.</p>
+        <div><div class="ev-verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>2 Timoteo 4:2</div>
+        <p class="ev-verse">que prediques la palabra; que instes a tiempo y fuera de tiempo; redarguye, reprende, exhorta con toda paciencia y doctrina.</p></div>
+      </div>
+    </div>
+
+    <div class="ev-card">
+      <div class="ev-card-top"><span class="ev-badge">6</span><span class="ev-card-title">Humildad</span></div>
+      <div class="ev-card-body">
+        <p class="ev-desc">Acercarse a las personas con actitud de humildad y con un rostro de sonrisa, reflejando el amor y la gracia de Cristo en el trato diario.</p>
+      </div>
+    </div>
+
+    <div class="ev-card">
+      <div class="ev-card-top"><span class="ev-badge">7</span><span class="ev-card-title">Compasión</span></div>
+      <div class="ev-card-body">
+        <p class="ev-desc">El evangelismo debe hacerse con mucha compasión por las almas. No salir a cumplir, sino por amor genuino.</p>
+        <ul class="ev-list">
+          <li>Despojarnos de todo lo malo.</li>
+          <li>Pedir a Dios compasión por las almas.</li>
+          <li>No salir por cumplir, sino por amor y compasión.</li>
+          <li>Movernos por las almas — como ovejas sin pastor.</li>
+        </ul>
+        <div><div class="ev-verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Gálatas 4:19</div>
+        <p class="ev-verse">Hijitos míos, por quienes vuelvo a sufrir dolores de parto, hasta que Cristo sea formado en vosotros.</p></div>
+      </div>
+    </div>
+
+    <div class="ev-card wide">
+      <div class="ev-card-top"><span class="ev-badge">8</span><span class="ev-card-title">La mentalidad compasiva de un predicador</span></div>
+      <div class="ev-card-body">
+        <div><div class="ev-verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>1 Tesalonicenses 2:7</div>
+        <p class="ev-verse">antes fuimos tiernos entre vosotros, como la nodriza que cuida con ternura a sus propios hijos.</p></div>
+        <ul class="ev-list">
+          <li>El apóstol Pablo miraba a los creyentes como a sus propios hijos.</li>
+          <li>Hay que tener cuidado de no volverse duro de corazón.</li>
+          <li>Predicar con humildad y paciencia.</li>
+          <li>Debe ser tierno y amoroso en el trato.</li>
+          <li>Demostrar la llenura del Espíritu Santo.</li>
+          <li>Nuestra misión es llevar las almas al cielo.</li>
+          <li>Hablarles un evangelio sencillo, comprensible.</li>
+          <li>No ofender a las personas.</li>
+          <li>El predicador debe amar con pasión y sacrificio.</li>
+          <li>Nuestra mentalidad es predicar de Cristo, no solo llevar a la iglesia.</li>
+          <li>El predicador debe tener la compasión de un padre.</li>
+          <li>Tener la unción de Cristo.</li>
+          <li>Llevar un mensaje de parte del Señor, certero y en su debido momento.</li>
+          <li>Somos heraldos del Señor — no estamos perdiendo el tiempo.</li>
+        </ul>
+        <div><div class="ev-verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>1 Corintios 15:19</div>
+        <p class="ev-verse">Si en esta vida solamente esperamos en Cristo, somos los más dignos de conmiseración de todos los hombres.</p></div>
+      </div>
+    </div>
+
+    <div class="ev-card">
+      <div class="ev-card-top"><span class="ev-badge">9</span><span class="ev-card-title">Posición como profeta y sacerdote</span></div>
+      <div class="ev-card-body">
+        <ul class="ev-list">
+          <li>Llevamos un mensaje de advertencia.</li>
+          <li>Ser observadores según la situación.</li>
+          <li>Posición de sacerdote: ofrecemos el perdón en Cristo Jesús.</li>
+          <li>Somos mensajeros, profetas y sacerdotes.</li>
+        </ul>
+        <div><div class="ev-verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>1 Corintios 6:9-10</div>
+        <p class="ev-verse">¿No sabéis que los injustos no heredarán el reino de Dios? No erréis; ni los fornicarios, ni los idólatras, ni los adúlteros… heredarán el reino de Dios.</p></div>
+      </div>
+    </div>
+
+    <div class="ev-card">
+      <div class="ev-card-top"><span class="ev-badge">✦</span><span class="ev-card-title">Propósitos del predicador</span></div>
+      <div class="ev-card-body">
+        <ul class="ev-list">
+          <li>Que las personas glorifiquen a Dios.</li>
+          <li>No hablar de nosotros mismos.</li>
+          <li>Dar un corto testimonio personal.</li>
+          <li>Hablar de la resurrección de Cristo.</li>
+          <li>Ser un comunicador efectivo.</li>
+          <li>El mensaje es una comunicación del momento, basada en la Biblia.</li>
+        </ul>
+        <div><div class="ev-verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>1 Corintios 2:2</div>
+        <p class="ev-verse">Pues me propuse no saber entre vosotros cosa alguna sino a Jesucristo, y a éste crucificado.</p></div>
+      </div>
+    </div>
+
+    <div class="ev-card">
+      <div class="ev-card-top"><span class="ev-badge">10</span><span class="ev-card-title">Aspecto del cristiano evangelístico</span></div>
+      <div class="ev-card-body">
+        <ul class="ev-list">
+          <li>Tocar el corazón de las personas.</li>
+          <li>Usar textos fáciles que ellos puedan entender y explicar.</li>
+        </ul>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+          <div><div class="ev-verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Marcos 16:15</div>
+          <p class="ev-verse">Y les dijo: Id por todo el mundo y predicad el evangelio a toda criatura.</p></div>
+          <div><div class="ev-verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Romanos 1:16</div>
+          <p class="ev-verse">Porque no me avergüenzo del evangelio, porque es poder de Dios para salvación a todo aquel que cree.</p></div>
+          <div><div class="ev-verse-ref"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>2 Timoteo 4:2</div>
+          <p class="ev-verse">que prediques la palabra; que instes a tiempo y fuera de tiempo; redarguye, reprende, exhorta con toda paciencia y doctrina.</p></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>Reina Valera 1960 &nbsp;·&nbsp; Estudio de Evangelismo &nbsp;·&nbsp; 2026</footer>
+</body>
+</html>
