@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Verbo: La Respuesta que el Mundo Necesita</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1035; --ink-muted: #3a3060; --ink-faint: #7a6eaa;
+    --bg: #f4f2fc; --bg-card: #fff;
+    --purple: #534ab7; --purple-mid: #7f77dd; --purple-light: #afa9ec;
+    --purple-pale: #eeedfe; --rule: #d0caf0;
+    --shadow: 0 2px 16px rgba(60,40,130,0.08);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Nunito', sans-serif; min-height: 100vh; }
+
+  /* NAV */
+  .topnav { background: #1a1035; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .back-btn { display: inline-flex; align-items: center; gap: 7px; color: rgba(255,255,255,0.55); font-size: 13px; font-weight: 600; text-decoration: none; padding: 12px 0; transition: color 0.15s; }
+  .back-btn:hover { color: #afa9ec; }
+  .nav-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); padding: 12px 0; }
+
+  /* HEADER */
+  header { background: linear-gradient(140deg, #1a1035 0%, #2d2070 55%, #534ab7 100%); color: #fff; padding: 3.5rem 1.5rem 3rem; text-align: center; position: relative; overflow: hidden; }
+  header::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.03) 39px, rgba(255,255,255,0.03) 40px); pointer-events: none; }
+  header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #7f77dd, #afa9ec, #7f77dd); }
+  .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #afa9ec; margin-bottom: 1rem; }
+  header h1 { font-family: 'Merriweather', serif; font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; line-height: 1.25; margin-bottom: 0.5rem; }
+  .header-sub { font-size: 14px; color: rgba(255,255,255,0.5); margin-top: 0.75rem; }
+  .h-rule { width: 52px; height: 3px; background: var(--purple-mid); margin: 1.5rem auto 0; border-radius: 2px; }
+
+  /* OCCASION PILLS */
+  .occasions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 1.5rem 1.25rem 0; max-width: 680px; margin: 0 auto; }
+  .pill { font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; background: var(--purple-pale); color: var(--purple); }
+
+  /* MAIN */
+  main { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 5rem; }
+
+  /* SECTION BLOCKS */
+  .section { margin-bottom: 2rem; }
+
+  .section-label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple-mid); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+  /* CARDS */
+  .card { background: var(--bg-card); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 1rem; }
+
+  .card-accent { border-left: 4px solid var(--purple-mid); border-radius: 0 14px 14px 0; }
+
+  .card-header { background: var(--purple-pale); border-bottom: 1px solid var(--rule); padding: 13px 18px; display: flex; align-items: center; gap: 10px; }
+  .card-num { background: var(--purple); color: #fff; font-size: 11px; font-weight: 700; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .card-header-title { font-size: 14px; font-weight: 700; color: var(--purple); }
+
+  .card-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; }
+
+  /* PROSE */
+  .prose { font-family: 'Merriweather', serif; font-size: 14.5px; color: var(--ink-muted); line-height: 1.85; }
+  .prose-plain { font-size: 14.5px; color: var(--ink-muted); line-height: 1.8; }
+
+  /* QUOTE */
+  .quote { border-left: 3px solid var(--purple-light); padding: 10px 14px; margin: 4px 0; }
+  .quote p { font-family: 'Merriweather', serif; font-size: 14px; font-style: italic; color: var(--ink-muted); line-height: 1.8; margin-bottom: 6px; }
+  .quote cite { font-size: 11px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--purple); font-style: normal; }
+
+  /* HIGHLIGHT */
+  .highlight { background: var(--purple-pale); border-radius: 10px; padding: 14px 16px; }
+  .highlight p { font-family: 'Merriweather', serif; font-size: 15px; font-style: italic; color: var(--purple); line-height: 1.75; font-weight: 400; }
+
+  /* RHYTHM TABLE */
+  .rhythm-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .rhythm-table th { text-align: left; padding: 8px 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); border-bottom: 1px solid var(--rule); }
+  .rhythm-table td { padding: 9px 12px; color: var(--ink-muted); border-bottom: 1px solid #f0eeff; vertical-align: top; }
+  .rhythm-table tr:last-child td { border-bottom: none; }
+  .tone-badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+  .tone-solemne  { background: #eeedfe; color: #534ab7; }
+  .tone-calido   { background: #e6f7f1; color: #1e7e5a; }
+  .tone-firme    { background: #fdf0ee; color: #c0392b; }
+  .tone-lento    { background: #faeeda; color: #854f0b; }
+
+  /* VERSE TABLE */
+  .verse-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .verse-table td { padding: 9px 12px; border-bottom: 1px solid #f0eeff; vertical-align: top; color: var(--ink-muted); }
+  .verse-table tr:last-child td { border-bottom: none; }
+  .verse-ref { font-weight: 700; color: var(--purple); white-space: nowrap; }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--rule); margin: 1.5rem 0; }
+
+  /* FOOTER */
+  footer { text-align: center; padding: 2rem 1rem; font-size: 12px; color: var(--ink-faint); border-top: 1px solid var(--rule); }
+
+  /* PRINT BUTTON */
+  .print-btn { display: inline-flex; align-items: center; gap: 7px; background: var(--purple); color: #fff; font-size: 13px; font-weight: 700; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; text-decoration: none; margin-bottom: 2rem; transition: background 0.15s; }
+  .print-btn:hover { background: #3c3489; }
+
+  @media (max-width: 500px) {
+    main { padding: 1.75rem 1rem 3rem; }
+    .card-body { padding: 14px 15px 17px; }
+    .prose, .prose-plain { font-size: 14px; }
+  }
+  @media print {
+    header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .card { break-inside: avoid; box-shadow: none; }
+    .topnav, .print-btn { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="back-btn" href="https://danielnoel.github.io/iepm/index.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Volver al índice
+  </a>
+  <span class="nav-tag">Discurso · 5 min</span>
+</div>
+
+<header>
+  <p class="eyebrow">Reflexión · Juan 1:1 · Mateo 16:13-17</p>
+  <h1>"El Verbo: La Respuesta<br>que el Mundo Necesita"</h1>
+  <p class="header-sub">Reina Valera 1960 &nbsp;·&nbsp; Válido para cualquier evento</p>
+  <div class="h-rule"></div>
+</header>
+
+<div class="occasions">
+  <span class="pill">✓ Vigilia</span>
+  <span class="pill">✓ Ayuno</span>
+  <span class="pill">✓ Culto dominical</span>
+  <span class="pill">✓ Aniversario</span>
+  <span class="pill">✓ Jóvenes</span>
+  <span class="pill">✓ Célula</span>
+  <span class="pill">✓ Evangelismo</span>
+  <span class="pill">✓ Espontáneo</span>
+</div>
+
+<main>
+
+  <div style="text-align:right; margin-bottom: 1.5rem;">
+    <button class="print-btn" onclick="window.print()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Imprimir / Guardar PDF
+    </button>
+  </div>
+
+  <!-- I. SALUTACIÓN -->
+  <div class="section">
+    <p class="section-label">I. Salutación</p>
+    <div class="card card-accent">
+      <div class="card-body">
+        <div class="quote">
+          <p>"Que la gracia y la paz de nuestro Señor Jesucristo sean con todos ustedes."</p>
+        </div>
+        <p class="prose-plain">Hermanos, amigos, visitantes — sea cual sea la razón por la que estamos reunidos hoy, hay una verdad que trasciende toda ocasión, toda fecha y todo lugar. Y esa verdad tiene nombre.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- II. TEXTO BASE -->
+  <div class="section">
+    <p class="section-label">II. Texto Base</p>
+    <div class="card">
+      <div class="card-body">
+        <div class="quote">
+          <p>"En el principio era el Verbo, y el Verbo era con Dios, y el Verbo era Dios."</p>
+          <cite>Juan 1:1</cite>
+        </div>
+        <div class="quote">
+          <p>"Tú eres el Cristo, el Hijo del Dios viviente."</p>
+          <cite>Mateo 16:16</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- III. INTRODUCCIÓN -->
+  <div class="section">
+    <p class="section-label">III. Introducción</p>
+    <div class="card">
+      <div class="card-body">
+        <p class="prose-plain">Jesús un día miró a sus discípulos y les hizo la pregunta más importante de la historia:</p>
+        <div class="quote">
+          <p>"¿Y vosotros, quién decís que soy yo?"</p>
+        </div>
+        <p class="prose-plain">Esa pregunta no era solo para Pedro. Es para cada persona que respira hoy sobre esta tierra.</p>
+        <p class="prose-plain">El mundo tiene miles de respuestas. El Islam dice que fue un profeta. Los testigos de Jehová dicen que fue un ser creado. La masonería dice que fue un hombre como nosotros. Hollywood lo presenta como inmoral.</p>
+        <div class="highlight">
+          <p>Pero hermanos — ninguna opinión humana cambia quién Él es.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IV. PROPOSICIÓN -->
+  <div class="section">
+    <p class="section-label">IV. Proposición</p>
+    <div class="card card-accent">
+      <div class="card-body">
+        <p class="prose-plain">Esta mañana — esta noche — en este momento — vamos a responder esa pregunta con la autoridad de la Palabra de Dios. Vamos a ver <strong>quién es realmente el Verbo</strong>, y por qué esa respuesta lo cambia todo.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- V. TRANSICIÓN -->
+  <div class="section">
+    <p class="section-label">V. Transición</p>
+    <div class="card">
+      <div class="card-body">
+        <p class="prose-plain">Pero antes de responderla, necesito preguntarles algo. ¿Saben quién escribió Juan 1:1?</p>
+        <p class="prose-plain">No fue un filósofo. No fue un teólogo de universidad. Fue un <strong>pescador.</strong> Hechos 4:13 dice que las autoridades lo vieron y reconocieron que era <em>"hombre sin letras y del vulgo."</em> Manos callosas. Sin academia. Sin títulos.</p>
+        <p class="prose-plain">Y sin embargo escribió algo que dejó sin palabras a los mejores filósofos griegos y a los rabinos más sabios de Israel. ¿Cómo pudo hacerlo?</p>
+        <div class="quote">
+          <p>"Los santos hombres de Dios hablaron siendo inspirados por el Espíritu Santo."</p>
+          <cite>2 Pedro 1:21</cite>
+        </div>
+        <div class="highlight"><p>Eso solo lo puede hacer Dios.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VI. CUERPO -->
+  <div class="section">
+    <p class="section-label">VI. Cuerpo — Tres verdades que nadie puede refutar</p>
+
+    <!-- Punto 1 -->
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="card-header">
+        <div class="card-num">1</div>
+        <span class="card-header-title">El Verbo siempre existió</span>
+      </div>
+      <div class="card-body">
+        <p class="prose-plain">Primero necesitamos entender qué significa <strong>Verbo.</strong> Desde la escuela sabemos que el verbo expresa <strong>acción.</strong> Correr, crear, amar. Entonces Juan nos dice algo enorme:</p>
+        <div class="highlight"><p>El Verbo es Dios expresándose. Y Dios se expresó completamente en su Hijo.</p></div>
+        <p class="prose-plain">Piénsenlo así — cuando tienes amor en el corazón pero no lo expresas, la otra persona no lo conoce. Pero cuando lo <strong>dices</strong>, cuando lo <strong>demuestras</strong> — ahí se vuelve real. Dios tenía amor por nosotros desde la eternidad. Y decidió expresarlo completamente en una sola Persona.</p>
+        <p class="prose-plain">Y ese Verbo no comenzó en Belén. Génesis 1:1 dice <em>"En el principio <strong>creó</strong> Dios"</em> — un comienzo. Juan 1:1 dice <em>"En el principio <strong>era</strong> el Verbo"</em> — alguien que ya existía antes de ese comienzo.</p>
+        <div class="quote">
+          <p>"Antes que Abraham fuese, <strong>yo soy."</strong></p>
+          <cite>Juan 8:58</cite>
+        </div>
+        <div class="highlight"><p>No dijo "yo era." Dijo "yo soy." Tiempo presente eterno. Sin inicio. Sin fin. Él siempre fue.</p></div>
+      </div>
+    </div>
+
+    <!-- Punto 2 -->
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="card-header">
+        <div class="card-num">2</div>
+        <span class="card-header-title">El Verbo estaba con Dios</span>
+      </div>
+      <div class="card-body">
+        <p class="prose-plain"><em>"El Verbo era <strong>con</strong> Dios."</em> Esa pequeña palabra <strong>con</strong> vale un sermón entero. No debajo de Dios. No lejos de Dios. No creado por Dios. En <strong>comunión íntima</strong> con el Padre desde antes de que existiera el tiempo.</p>
+        <div class="quote">
+          <p>"Todo lo mío es tuyo, y lo tuyo es mío."</p>
+          <cite>Juan 17:10</cite>
+        </div>
+        <p class="prose-plain">Antes del universo, antes de las estrellas, antes de todo — había amor. Había comunión perfecta entre el Padre y el Hijo. Y ese amor eterno un día tomó una decisión:</p>
+        <div class="quote">
+          <p>"Siendo en forma de Dios… se despojó a sí mismo, tomando forma de siervo."</p>
+          <cite>Filipenses 2:6-7</cite>
+        </div>
+        <div class="highlight"><p>El que estaba en comunión perfecta con el Padre… bajó a buscarnos.</p></div>
+      </div>
+    </div>
+
+    <!-- Punto 3 -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-num">3</div>
+        <span class="card-header-title">El Verbo era Dios</span>
+      </div>
+      <div class="card-body">
+        <div class="highlight"><p>No un dios menor. No un ángel elevado. No un ser creado. El mismo Dios.</p></div>
+        <div class="quote">
+          <p>"En él habita corporalmente toda la plenitud de la Divinidad."</p>
+          <cite>Colosenses 2:9</cite>
+        </div>
+        <p class="prose-plain">El Nuevo Testamento proclama esta verdad <strong>477 veces</strong> — 110 veces como <em>Hijo de Dios</em>, 367 veces como <em>Señor.</em> Título que los hebreos aplicaban exclusivamente a Dios. Los hombres lo crucificaron precisamente por esto — <em>"porque se hacía igual a Dios."</em></p>
+        <div class="quote">
+          <p>"Para que en el nombre de Jesús se doble toda rodilla… y toda lengua confiese que Jesucristo es el Señor."</p>
+          <cite>Filipenses 2:10-11</cite>
+        </div>
+        <p class="prose-plain">Los griegos intuían un <em>Lógos</em> — una fuerza fría e impersonal. Los judíos conocían la Palabra que creó los cielos. Juan los mira a ambos y les dice:</p>
+        <div class="highlight"><p>"Ese ser que ustedes intuían… no es una fuerza. No es una idea. Es una Persona. Tiene rostro. Tiene nombre. Se llama Jesús."</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VII. APLICACIÓN -->
+  <div class="section">
+    <p class="section-label">VII. Aplicación</p>
+    <div class="card card-accent">
+      <div class="card-body">
+        <p class="prose-plain">Hermanos, esta verdad no es solo teología. Es personal.</p>
+        <p class="prose-plain">Si el Verbo es Dios expresándose — entonces cuando Jesús te buscó, <strong>Dios mismo te estaba buscando.</strong> Cuando Jesús murió por ti, <strong>Dios mismo pagó tu deuda.</strong> Cuando Jesús te llama hoy, <strong>Dios mismo te está llamando.</strong></p>
+        <p class="prose-plain">No hay religión que pueda darte eso. No hay filosofía que llegue ahí. No hay hombre, profeta ni gurú que pueda decir:</p>
+        <div class="quote">
+          <p>"Yo soy el camino, la verdad y la vida."</p>
+          <cite>Juan 14:6</cite>
+        </div>
+        <div class="highlight"><p>Solo el Verbo puede decirlo. Porque solo el Verbo es Dios.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIII. CONCLUSIÓN -->
+  <div class="section">
+    <p class="section-label">VIII. Conclusión</p>
+    <div class="card">
+      <div class="card-body">
+        <p class="prose-plain" style="color:var(--ink-faint); font-size:13px; font-style:italic;">*(Baja el volumen. Habla despacio.)*</p>
+        <p class="prose-plain">Sea que estemos en un aniversario, en una vigilia, en un ayuno, en un culto de oración, o simplemente reunidos en el nombre de Jesús — la pregunta sigue siendo la misma:</p>
+        <div class="quote">
+          <p>"¿Y vosotros, quién decís que soy yo?"</p>
+        </div>
+        <p class="prose-plain">Pedro respondió por revelación divina. Hoy, el Espíritu Santo nos da esa misma revelación.</p>
+        <div class="highlight">
+          <p>"En el principio era el Verbo… y el Verbo era Dios."<br><br>Y ese Verbo… se hizo carne. Murió. Resucitó. Y vive hoy en nuestros corazones.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IX. LLAMADO -->
+  <div class="section">
+    <p class="section-label">IX. Llamado</p>
+    <div class="card card-accent">
+      <div class="card-body">
+        <p class="prose-plain" style="color:var(--ink-faint); font-size:13px; font-style:italic;">*(Voz firme pero cálida)*</p>
+        <p class="prose-plain">Si hay alguien aquí que nunca ha respondido esa pregunta — que nunca ha dicho de corazón <em>"Tú eres el Cristo, el Hijo del Dios viviente"</em> — este es tu momento.</p>
+        <p class="prose-plain">No necesitas ser perfecto. No necesitas tener todo resuelto. Solo necesitas lo que tuvo Pedro — <strong>honestidad delante de Dios.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- X. ORACIÓN FINAL -->
+  <div class="section">
+    <p class="section-label">X. Oración Final</p>
+    <div class="card">
+      <div class="card-body">
+        <div class="quote">
+          <p>"Padre celestial, cuán agradecidos estamos porque nos diste a tu Hijo amado — el Verbo eterno hecho carne. Hoy pedimos que ese Verbo hable a cada corazón presente. Que quien no te conoce te encuentre. Que quien te conoce te ame más. Y que todos salgamos de aquí con una certeza grabada en el alma: Jesucristo es el Señor. En su nombre precioso oramos. Amén."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- RITMO -->
+  <div class="section">
+    <p class="section-label">Guía de ritmo</p>
+    <div class="card">
+      <div class="card-body" style="padding: 0;">
+        <table class="rhythm-table">
+          <tr><th>Parte</th><th>Tono</th><th>Velocidad</th></tr>
+          <tr><td>Salutación</td><td><span class="tone-badge tone-calido">Cálido</span></td><td>Normal</td></tr>
+          <tr><td>Introducción</td><td><span class="tone-badge tone-firme">Directo</span></td><td>Normal</td></tr>
+          <tr><td>Transición</td><td><span class="tone-badge tone-calido">Narrativo</span></td><td>Normal</td></tr>
+          <tr><td>Punto 1 — El Verbo</td><td><span class="tone-badge tone-solemne">Didáctico</span></td><td>Normal</td></tr>
+          <tr><td>Punto 2 — Con Dios</td><td><span class="tone-badge tone-solemne">Reflexivo</span></td><td>Normal</td></tr>
+          <tr><td>Punto 3 — Era Dios</td><td><span class="tone-badge tone-firme">Firme</span></td><td>Normal</td></tr>
+          <tr><td>Aplicación</td><td><span class="tone-badge tone-calido">Íntimo</span></td><td>Lento</td></tr>
+          <tr><td>Conclusión</td><td><span class="tone-badge tone-lento">Emotivo</span></td><td>Muy lento</td></tr>
+          <tr><td>Llamado</td><td><span class="tone-badge tone-calido">Cálido</span></td><td>Lento</td></tr>
+          <tr><td>Oración</td><td><span class="tone-badge tone-solemne">Reverente</span></td><td>Muy lento</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- VERSÍCULOS -->
+  <div class="section">
+    <p class="section-label">Versículos clave</p>
+    <div class="card">
+      <div class="card-body" style="padding: 0;">
+        <table class="verse-table">
+          <tr><td class="verse-ref">Juan 1:1</td><td>Texto base del discurso</td></tr>
+          <tr><td class="verse-ref">Mateo 16:16</td><td>La respuesta de Pedro</td></tr>
+          <tr><td class="verse-ref">2 Pedro 1:21</td><td>Juan era pescador, no filósofo</td></tr>
+          <tr><td class="verse-ref">Juan 8:58</td><td>Él siempre existió</td></tr>
+          <tr><td class="verse-ref">Juan 17:10</td><td>Comunión con el Padre</td></tr>
+          <tr><td class="verse-ref">Filipenses 2:6-7</td><td>Se despojó por nosotros</td></tr>
+          <tr><td class="verse-ref">Colosenses 2:9</td><td>Toda la plenitud de Dios en Él</td></tr>
+          <tr><td class="verse-ref">Filipenses 2:10-11</td><td>Todo nombre se dobla ante Él</td></tr>
+          <tr><td class="verse-ref">Juan 14:6</td><td>Solo Él es el camino</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>Reina Valera 1960 &nbsp;·&nbsp; "El Verbo: La Respuesta que el Mundo Necesita" &nbsp;·&nbsp; IEPM 2026</footer>
+</body>
+</html>
